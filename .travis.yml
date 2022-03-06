@@ -10,13 +10,13 @@ script:
 
 after_success:
   - docker build -t hugocordz/multi-client ./client
-  - docker build -t hugocordz/multi-ngnix ./nginx
+  - docker build -t hugocordz/multi-nginx ./nginx
   - docker build -t hugocordz/multi-server ./server
   - docker build -t hugocordz/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push hugocordz/multi-client
   - docker push hugocordz/multi-nginx
   - docker push hugocordz/multi-server
-  - docker push hugocordz/multi-woreker
+  - docker push hugocordz/multi-worker
 
 language: generic
